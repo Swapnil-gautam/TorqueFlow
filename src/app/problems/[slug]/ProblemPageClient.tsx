@@ -217,14 +217,14 @@ export default function ProblemPageClient({ slug }: { slug: string }) {
                 </div>
               )}
 
-              <div className="min-w-0 max-w-full rounded-xl border border-border-default bg-bg-secondary/40 p-5">
+              <div className="min-w-0 max-w-full overflow-x-auto rounded-xl border border-border-default bg-bg-secondary/40 p-5">
                 <MarkdownContent content={problem.description} />
               </div>
             </div>
           )}
 
           {activeTab === "theory" && (
-            <div className="min-w-0 max-w-full rounded-xl border border-border-default bg-bg-secondary/40 p-5">
+            <div className="min-w-0 max-w-full overflow-x-auto rounded-xl border border-border-default bg-bg-secondary/40 p-5">
               <MarkdownContent content={problem.theory} />
             </div>
           )}

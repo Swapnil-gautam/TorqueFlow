@@ -43,42 +43,181 @@ body {
 
 .markdown-content {
   min-width: 0;
-  max-width: 100%;
+  max-width: 65ch;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 1280px) {
+  .markdown-content {
+    max-width: min(65ch, 100%);
+  }
+}
+
+.markdown-content > *:first-child {
+  margin-top: 0;
+}
+
+.markdown-content p {
+  margin: 0 0 0.75rem;
+}
+
+.markdown-content p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--color-text-primary);
+}
+
+.markdown-content h2:first-child {
+  margin-top: 0;
+}
+
+.markdown-content strong {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.markdown-content a {
+  color: var(--color-accent-green);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.markdown-content a:hover {
+  color: var(--color-accent-emerald);
+}
+
+.markdown-content :not(pre) > code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-accent-green);
+  background: var(--color-bg-tertiary);
+  padding: 0.12rem 0.35rem;
+  border-radius: 0.25rem;
+}
+
+.markdown-content ul {
+  list-style: disc;
+  margin: 0.35rem 0 0.85rem;
+  padding-left: 1.1rem;
+}
+
+.markdown-content ol {
+  list-style: decimal;
+  margin: 0.35rem 0 0.85rem;
+  padding-left: 1.1rem;
+}
+
+.markdown-content li {
+  margin: 0.2rem 0;
+  padding-left: 0.15rem;
+}
+
+.markdown-content li::marker {
+  color: var(--color-text-muted);
+}
+
+.markdown-content .katex {
+  color: var(--color-text-primary);
+  font-size: 1.05em;
 }
 
 .markdown-content pre {
   box-sizing: border-box;
+  margin: 0.75rem 0;
+  padding: 1rem;
   max-width: 100%;
   overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--color-text-secondary) 92%, white);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-default);
+  border-radius: 0.5rem;
 }
 
 .markdown-content pre code {
   display: block;
   width: 100%;
+  padding: 0;
+  font-size: inherit;
+  font-weight: 400;
+  color: inherit;
+  background: transparent;
+  border-radius: 0;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
+/* GFM tables (remark-gfm) — was plain text before */
+.markdown-content .table-wrap {
+  margin: 0.75rem 0 1rem;
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-tertiary);
+}
+
 .markdown-content table {
   width: 100%;
+  min-width: min(100%, 28rem);
   border-collapse: collapse;
-  margin: 0.75rem 0;
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.markdown-content thead {
+  background: color-mix(in srgb, var(--color-bg-secondary) 85%, transparent);
 }
 
 .markdown-content th {
   border-bottom: 1px solid var(--color-border-default);
   text-align: left;
-  padding: 0.4rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.45rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.markdown-content th:not(:last-child),
+.markdown-content td:not(:last-child) {
+  border-right: 1px solid var(--color-border-default);
 }
 
 .markdown-content td {
+  vertical-align: top;
   border-bottom: 1px solid var(--color-border-default);
-  padding: 0.4rem 0.75rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--color-text-secondary);
 }
 
-.markdown-content tr:last-child td {
+.markdown-content td:first-child {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--color-accent-green);
+  white-space: nowrap;
+}
+
+.markdown-content tbody tr:last-child td {
   border-bottom: none;
+}
+
+.markdown-content .table-wrap + p {
+  margin-top: 0.85rem;
 }
 
 .markdown-content hr {
@@ -89,7 +228,14 @@ body {
 
 .markdown-content h3 {
   position: relative;
+  margin: 1.5rem 0 0.5rem;
   padding-left: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--color-accent-green) 80%, var(--color-text-primary));
 }
 
 .markdown-content h3::before {

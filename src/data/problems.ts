@@ -7,9 +7,7 @@ export const problems: Problem[] = [
     title: "Forward Kinematics (2-Link Arm)",
     difficulty: "Easy",
     topics: ["Kinematics"],
-    description: `## Forward Kinematics (2-Link Arm)
-
-Given a 2-link planar robot arm with link lengths $l_1$ and $l_2$, and joint angles $\\theta_1$ and $\\theta_2$, compute the **(x, y)** position of the end-effector.
+    description: `Given a 2-link planar robot arm with link lengths $l_1$ and $l_2$, and joint angles $\\theta_1$ and $\\theta_2$, compute the **(x, y)** position of the end-effector.
 
 ---
 
@@ -66,7 +64,7 @@ Input:  l1 = 1, l2 = 1, theta1 = 0, theta2 = π/2
 Output: (1.0, 1.0)
 \`\`\`
 
-The first link lies along the x-axis (reaching $x=1, y=0$). The second joint bends 90° upward, so the second link points straight up. The end-effector lands at $(1, 1)$: $x = 1 \\cdot \\cos(0) + 1 \\cdot \\cos(\\pi/2) = 1 + 0 = 1$ and $y = 1 \\cdot \\sin(0) + 1 \\cdot \\sin(\\pi/2) = 0 + 1 = 1$.
+The first link lies along the x-axis to $(1, 0)$. The second joint rotates $\\pi/2$ so the second link points along $+y$, placing the end-effector at $(1, 1)$ — i.e. $x = l_1\\cos(0) + l_2\\cos(\\pi/2)$ and $y = l_1\\sin(0) + l_2\\sin(\\pi/2)$.
 `,
     theory: `## Theory: Forward Kinematics
 
@@ -173,9 +171,7 @@ json.dumps(results)
     title: "Inverse Kinematics (2-Link Arm)",
     difficulty: "Medium",
     topics: ["Kinematics"],
-    description: `## Inverse Kinematics (2-Link Arm)
-
-Given a 2-link planar robot arm with link lengths $l_1$ and $l_2$, compute the joint angles $\\theta_1$ and $\\theta_2$ needed to reach a target position $(x, y)$.
+    description: `Given a 2-link planar robot arm with link lengths $l_1$ and $l_2$, compute the joint angles $\\theta_1$ and $\\theta_2$ needed to reach a target position $(x, y)$.
 
 ---
 
@@ -235,7 +231,7 @@ Input:  l1 = 1, l2 = 1, x = 1, y = 1
 Output: (0.7854, 1.5708)
 \`\`\`
 
-The target distance is $\\sqrt{2} \\approx 1.414$. Using the law of cosines: $\\cos(\\theta_2) = (2 - 1 - 1) / 2 = 0$, so $\\theta_2 = \\pi/2 \\approx 1.5708$. Then $\\theta_1 = \\text{atan2}(1,1) - \\text{atan2}(1, 1) \\approx 0.7854 - 0 = 0.7854$ rad ($45°$).
+The target distance is $\\sqrt{2} \\approx 1.414$, so the goal is reachable. The law of cosines gives $c_2 = \\frac{x^2 + y^2 - l_1^2 - l_2^2}{2l_1l_2} = 0$, hence the elbow-up branch has $\\theta_2 = \\pi/2 \\approx 1.5708$ rad. The corresponding $\\theta_1$ from the 2-link analytic IK (see **Approach** above) is $\\approx 0.7854$ rad — matching the sample output.
 `,
     theory: `## Theory: Inverse Kinematics
 
@@ -345,9 +341,7 @@ json.dumps(results)
     title: "PID Controller",
     difficulty: "Easy",
     topics: ["Controls"],
-    description: `## PID Controller
-
-Implement a **PID (Proportional-Integral-Derivative) controller** that computes a control signal to drive a system to a desired setpoint.
+    description: `Implement a **PID (Proportional-Integral-Derivative) controller** that computes a control signal to drive a system to a desired setpoint.
 
 ---
 
@@ -532,9 +526,7 @@ json.dumps(results)
     title: "1D Kalman Filter",
     difficulty: "Medium",
     topics: ["Localization"],
-    description: `## 1D Kalman Filter
-
-Implement a single **predict-update** step of a 1D Kalman filter.
+    description: `Implement a single **predict-update** step of a 1D Kalman filter.
 
 ---
 
@@ -710,9 +702,7 @@ json.dumps(results)
     title: "Pure Pursuit Path Tracking",
     difficulty: "Medium",
     topics: ["Controls"],
-    description: `## Pure Pursuit Path Tracking
-
-Implement the **Pure Pursuit** algorithm to compute the steering angle for a robot following a path.
+    description: `Implement the **Pure Pursuit** algorithm to compute the steering angle for a robot following a path.
 
 ---
 
