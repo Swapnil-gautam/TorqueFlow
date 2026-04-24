@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RoboCode — Robotics Coding Challenges",
+  title: "TorqueFlow — Robotics Coding Challenges",
   description:
     "A LeetCode-style platform for learning robotics concepts through interactive coding challenges with 3D visualizations.",
 };

@@ -25,7 +25,7 @@ export default function Navbar() {
             </svg>
           </div>
           <span className="text-lg font-bold text-text-primary">
-            Robo<span className="text-accent-green">Code</span>
+            Torque<span className="text-accent-green">Flow</span>
           </span>
         </Link>
 
