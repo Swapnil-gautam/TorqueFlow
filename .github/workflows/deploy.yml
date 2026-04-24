@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    # Include main so deploys run after a default-branch rename; base path is always github.event.repository.name
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:
